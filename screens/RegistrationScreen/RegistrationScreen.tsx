@@ -15,8 +15,11 @@ import {
 
 import { colors } from "../../assets/styles/globalStyles";
 import heroImage from "../../assets/images/photoBG.jpg";
-import Input from "../input/Input";
-import UserAvatar from "../userAvatar/UserAvatar";
+
+import Input from "../../components/input/Input";
+import UserAvatar from "../../components/userAvatar/UserAvatar";
+import FormButton from "../../components/button/FormButton";
+
 
 // import ShowPasswordBtn from "../schowPasswordBtn/ShowPasswordBtn";
 
@@ -51,7 +54,7 @@ const RegistrationScreen = () => {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === "ios" ? "height" : "padding"}
@@ -87,6 +90,7 @@ const RegistrationScreen = () => {
               secureTextEntry={isPasswordVisible}
             />
           </View>
+          <FormButton text={'Зареєстуватися'}></FormButton>
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>

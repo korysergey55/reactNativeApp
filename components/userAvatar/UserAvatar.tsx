@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, View, ViewProps } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View, ViewProps } from "react-native";
 
 import userAvatarImage from "../../assets/images/avatar.png";
+import AvatarIconSvg from "../avatarIcon/AvatarIcon";
 
 type Props = {
   outerStyles?: ViewProps["style"];
@@ -15,6 +16,9 @@ const UserAvatar: React.FC<Props> = ({ outerStyles }) => {
         source={imageData}
         style={styles.image}
       />
+      <TouchableOpacity style={styles.button}>
+      <AvatarIconSvg/>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -29,6 +33,13 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderRadius: 16,
+  },
+  button:{
+    position: "absolute",
+    bottom: "20%",
+    right:'-10%',
+    zIndex: 11,
+
   },
 });
 
