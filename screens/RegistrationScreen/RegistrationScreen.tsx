@@ -20,7 +20,6 @@ import Input from "../../components/input/Input";
 import UserAvatar from "../../components/userAvatar/UserAvatar";
 import FormButton from "../../components/button/FormButton";
 
-
 // import ShowPasswordBtn from "../schowPasswordBtn/ShowPasswordBtn";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
@@ -57,40 +56,48 @@ const RegistrationScreen = () => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
         style={styles.container}
-        behavior={Platform.OS === "ios" ? "height" : "padding"}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         {/* <SafeAreaView style={styles.formComtainer}>
         <Text style={styles.formTitle}>Реєстрація</Text>
       </SafeAreaView> */}
-        <Image
-          source={heroImage}
-          style={styles.image}
-          resizeMode="cover"
-        />
-        <View style={styles.formComtainer}>
-          <UserAvatar outerStyles={styles.outerAvatarStyles} />
-          <Text style={styles.formTitle}>Реєстрація</Text>
-          <View style={styles.inputsComtainer}>
-            <Input
-              value={loginValue}
-              onChange={handleChangeLogin}
-              placeholder="Логін"
-            />
-            <Input
-              value={emailValue}
-              onChange={handleChangeEmail}
-              placeholder="Адреса електронної пошти"
-            />
-            <Input
-              value={passwordValue}
-              onChange={handleChangePassword}
-              placeholder="Пароль"
-              rightButton={ShowPasswordBtn}
-              outerStyles={styles.outerStylesBtn}
-              secureTextEntry={isPasswordVisible}
-            />
+        <View style={styles.container}>
+          <Image
+            source={heroImage}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <View style={styles.formComtainer}>
+            <UserAvatar outerStyles={styles.outerAvatarStyles} />
+            <Text style={styles.formTitle}>Реєстрація</Text>
+            <View style={styles.inputsComtainer}>
+              <Input
+                value={loginValue}
+                onChange={handleChangeLogin}
+                placeholder="Логін"
+              />
+              <Input
+                value={emailValue}
+                onChange={handleChangeEmail}
+                placeholder="Адреса електронної пошти"
+              />
+              <Input
+                value={passwordValue}
+                onChange={handleChangePassword}
+                placeholder="Пароль"
+                rightButton={ShowPasswordBtn}
+                outerStyles={styles.outerStylesBtn}
+                secureTextEntry={isPasswordVisible}
+              />
+            </View>
+            <FormButton text={"Зареєстуватися"}></FormButton>
+            <TouchableOpacity onPress={() => {}}>
+              <View style={styles.containerLinkButton}>
+                <Text style={styles.linkButton}> Вже є акаунт? </Text>
+                <Text style={styles.linkButton}> Увійти</Text>
+              </View>
+            </TouchableOpacity>
           </View>
-          <FormButton text={'Зареєстуватися'}></FormButton>
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -119,8 +126,6 @@ const styles = StyleSheet.create({
     minHeight: "50%",
     height: "auto",
 
-    paddingTop: 92,
-    paddingBottom: 45,
     paddingLeft: 16,
     paddingRight: 16,
 
@@ -129,6 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.bgColor,
   },
   formTitle: {
+    marginTop: 92,
     fontFamily: "Roboto-Regular",
     fontSize: 30,
     fontWeight: 500,
@@ -155,6 +161,22 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: "-20%",
     zIndex: 10,
+  },
+
+  containerLinkButton: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: 5,
+    marginBottom: 45,
+  },
+  linkButton: {
+    marginTop: 16,
+
+    fontFamily: "Roboto-Medium",
+    fontSize: 16,
+    lineHeight: 18.75,
+    color: colors.activeTextColor,
   },
 });
 
