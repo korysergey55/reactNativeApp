@@ -1,10 +1,12 @@
+import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { useEffect } from "react";
+
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
-import { ActivityIndicator, StyleSheet, View } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 
-import RegistrationScreen from "./screens/RegistrationScreen/RegistrationScreen";
+import RegistrationScreen from "./screens/registrationScreen/RegistrationScreen";
+import LoginScreen from "./screens/loginScreen/login Screen";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -33,7 +35,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <RegistrationScreen />
+      {/* <RegistrationScreen /> */}
+      <LoginScreen />
       <StatusBar style="auto" />
     </View>
   );

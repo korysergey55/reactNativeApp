@@ -24,32 +24,28 @@ import FormButton from "../../components/button/FormButton";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
-const RegistrationScreen = () => {
+const LoginScreen = () => {
   const ShowPasswordBtn = (
     <TouchableOpacity onPress={handleShowPassword}>
       <Text style={styles.showPasswordBtn}>Показати</Text>
     </TouchableOpacity>
   );
 
-  const [loginValue, setLogin] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
-  const handleChangeLogin = (value: string) => {
-    setLogin(value);
-  };
   const handleChangeEmail = (value: string) => {
     setEmail(value);
+    console.log(value);
   };
   const handleChangePassword = (value: string) => {
     setPassword(value);
-    console.log(passwordValue);
+    console.log(value);
   };
 
   function handleShowPassword() {
     setIsPasswordVisible(prev => !prev);
-    console.log(isPasswordVisible);
   }
 
   const onSubmit = () => {
@@ -72,14 +68,8 @@ const RegistrationScreen = () => {
             resizeMode="cover"
           />
           <View style={styles.formComtainer}>
-            <UserAvatar outerStyles={styles.outerAvatarStyles} />
-            <Text style={styles.formTitle}>Реєстрація</Text>
+            <Text style={styles.formTitle}>Увійти</Text>
             <View style={styles.inputsComtainer}>
-              <Input
-                value={loginValue}
-                onChange={handleChangeLogin}
-                placeholder="Логін"
-              />
               <Input
                 value={emailValue}
                 onChange={handleChangeEmail}
@@ -95,13 +85,13 @@ const RegistrationScreen = () => {
               />
             </View>
             <FormButton
-              text={"Зареєстуватися"}
+              text={"Увійти"}
               onSubmit={onSubmit}
             ></FormButton>
             <TouchableOpacity onPress={() => {}}>
               <View style={styles.containerLinkButton}>
-                <Text style={styles.linkButton}> Вже є акаунт? </Text>
-                <Text style={styles.linkButton}> Увійти</Text>
+                <Text style={styles.linkButton}> Немає акаунту? </Text>
+                <Text style={styles.linkButton}> Зареєструватися</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -135,13 +125,14 @@ const styles = StyleSheet.create({
 
     paddingLeft: 16,
     paddingRight: 16,
+    paddingBottom: 111,
 
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     backgroundColor: colors.bgColor,
   },
   formTitle: {
-    marginTop: 92,
+    marginTop: 32,
     fontFamily: "Roboto-Regular",
     fontSize: 30,
     fontWeight: 500,
@@ -187,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegistrationScreen;
+export default LoginScreen;

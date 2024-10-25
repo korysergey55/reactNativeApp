@@ -2,15 +2,15 @@ import React, { FC } from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { colors } from "../../assets/styles/globalStyles";
 
-
 type ButtonProps = {
-    text:string,
-}
-const FormButton: FC<ButtonProps> = ({text}) => {
+  text: string;
+  onSubmit: () => void;
+};
+const FormButton: FC<ButtonProps> = ({ text, onSubmit }) => {
   return (
     <TouchableOpacity
       style={styles.button}
-      onPress={() => {}}
+      onPress={onSubmit}
     >
       <Text style={styles.buttonText}>{text}</Text>
     </TouchableOpacity>
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
     marginTop: 59,
 
-    borderRadius:100,
+    borderRadius: 100,
     backgroundColor: colors.buttonColor,
   },
   buttonText: {
