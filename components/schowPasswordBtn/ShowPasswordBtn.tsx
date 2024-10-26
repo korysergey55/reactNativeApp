@@ -2,10 +2,19 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import { colors } from "../../assets/styles/globalStyles";
 
-const ShowPasswordBtn = () => {
+type PropTypes = {
+  handleShowPassword: () => void;
+};
+
+const ShowPasswordBtn: React.FC<PropTypes> = ({ handleShowPassword }) => {
   return (
     <TouchableOpacity>
-      <Text style={styles.showPasswordBtn}>Показати</Text>
+      <Text
+        style={styles.showPasswordBtn}
+        onPress={handleShowPassword}
+      >
+        Показати
+      </Text>
     </TouchableOpacity>
   );
 };

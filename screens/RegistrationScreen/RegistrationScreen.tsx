@@ -14,23 +14,16 @@ import {
 } from "react-native";
 
 import { colors } from "../../assets/styles/globalStyles";
-import heroImage from "../../assets/images/photoBG.jpg";
+import heroImage from "../../assets/images/heroImage.jpg";
 
 import Input from "../../components/input/Input";
 import UserAvatar from "../../components/userAvatar/UserAvatar";
 import FormButton from "../../components/button/FormButton";
-
-// import ShowPasswordBtn from "../schowPasswordBtn/ShowPasswordBtn";
+import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
-  const ShowPasswordBtn = (
-    <TouchableOpacity onPress={handleShowPassword}>
-      <Text style={styles.showPasswordBtn}>Показати</Text>
-    </TouchableOpacity>
-  );
-
   const [loginValue, setLogin] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
@@ -44,12 +37,10 @@ const RegistrationScreen = () => {
   };
   const handleChangePassword = (value: string) => {
     setPassword(value);
-    console.log(passwordValue);
   };
 
   function handleShowPassword() {
     setIsPasswordVisible(prev => !prev);
-    console.log(isPasswordVisible);
   }
 
   const onSubmit = () => {
@@ -88,16 +79,16 @@ const RegistrationScreen = () => {
               <Input
                 value={passwordValue}
                 onChange={handleChangePassword}
-                placeholder="Пароль"
-                rightButton={ShowPasswordBtn}
-                outerStyles={styles.outerStylesBtn}
                 secureTextEntry={isPasswordVisible}
+                placeholder="Пароль"
+                outerStyles={styles.outerStylesBtn}
+                rightButton={<ShowPasswordBtn handleShowPassword={handleShowPassword} />}
               />
             </View>
             <FormButton
               text={"Зареєстуватися"}
               onSubmit={onSubmit}
-            ></FormButton>
+            />
             <TouchableOpacity onPress={() => {}}>
               <View style={styles.containerLinkButton}>
                 <Text style={styles.linkButton}> Вже є акаунт? </Text>

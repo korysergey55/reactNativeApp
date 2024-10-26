@@ -6,7 +6,7 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 
 import RegistrationScreen from "./screens/registrationScreen/RegistrationScreen";
-import LoginScreen from "./screens/loginScreen/login Screen";
+import LoginScreen from "./screens/loginScreen/LoginScreen";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -35,8 +35,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <RegistrationScreen /> */}
-      <LoginScreen />
+      <RegistrationScreen />
+      {/* <LoginScreen /> */}
       <StatusBar style="auto" />
     </View>
   );
