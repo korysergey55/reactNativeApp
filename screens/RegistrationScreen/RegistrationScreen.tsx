@@ -17,8 +17,8 @@ import { colors } from "../../assets/styles/globalStyles";
 import heroImage from "../../assets/images/heroImage.jpg";
 
 import Input from "../../components/input/Input";
-import UserAvatar from "../../components/userAvatar/UserAvatar";
 import FormButton from "../../components/button/FormButton";
+import UserAvatar from "../../components/userAvatar/UserAvatar";
 import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
