@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   StyleSheet,
   View,
@@ -22,9 +23,19 @@ import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const LoginScreen = () => {
+  const { navigate } = useNavigation();
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+  const [isUsetLogined, setisUsetLogined] = useState(false);
+
+  useEffect(() => {
+    setEmail("");
+    setPassword("");
+    if (isUsetLogined) {
+      navigate("Home");
+    }
+  }, [isUsetLogined]);
 
   const handleChangeEmail = (value: string) => {
     setEmail(value);
@@ -39,6 +50,12 @@ const LoginScreen = () => {
 
   const onSubmit = () => {
     console.log(`email:${emailValue}, password:${passwordValue}`);
+    if (!emailValue || !passwordValue) {
+      alert("Feelds cant be empty");
+      return;
+    }
+    setisUsetLogined(true);
+    navigate("Home");
   };
 
   return (
@@ -74,7 +91,11 @@ const LoginScreen = () => {
               text={"Увійти"}
               onSubmit={onSubmit}
             />
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Registration");
+              }}
+            >
               <View style={styles.containerLinkButton}>
                 <Text style={styles.linkButton}> Немає акаунту? </Text>
                 <Text style={styles.linkButton}> Зареєструватися</Text>

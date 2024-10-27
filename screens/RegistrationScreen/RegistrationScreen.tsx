@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,10 +25,18 @@ import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
+  const { navigate } = useNavigation();
   const [loginValue, setLogin] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+  const [isUsetRegistrated, setIsUsetRegistrated] = useState(false);
+
+  useEffect(() => {
+    if (isUsetRegistrated) {
+      navigate("Login");
+    }
+  }, [isUsetRegistrated]);
 
   const handleChangeLogin = (value: string) => {
     setLogin(value);
@@ -45,6 +54,10 @@ const RegistrationScreen = () => {
 
   const onSubmit = () => {
     console.log(`email:${emailValue}, password:${passwordValue}`);
+    if (loginValue && passwordValue && emailValue) {
+      setIsUsetRegistrated(true);
+      navigate("Login");
+    }
   };
 
   return (
@@ -89,7 +102,11 @@ const RegistrationScreen = () => {
               text={"Зареєстуватися"}
               onSubmit={onSubmit}
             />
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity
+              onPress={() => {
+                navigate("Login");
+              }}
+            >
               <View style={styles.containerLinkButton}>
                 <Text style={styles.linkButton}> Вже є акаунт? </Text>
                 <Text style={styles.linkButton}> Увійти</Text>
