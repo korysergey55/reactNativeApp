@@ -15,7 +15,6 @@ import {
 } from "react-native";
 
 import { colors } from "../../assets/styles/globalStyles";
-import heroImage from "../../assets/images/heroImage.jpg";
 
 import Input from "../../components/input/Input";
 import FormButton from "../../components/button/FormButton";
@@ -71,12 +70,15 @@ const RegistrationScreen = () => {
       </SafeAreaView> */}
         <View style={styles.container}>
           <Image
-            source={heroImage}
+            source={require("../../assets/images/heroImage.jpg")}
             style={styles.image}
             resizeMode="cover"
           />
           <View style={styles.formComtainer}>
-            <UserAvatar outerStyles={styles.outerAvatarStyles} />
+            <UserAvatar
+              outerStyles={styles.outerAvatarStyles}
+              button={true}
+            />
             <Text style={styles.formTitle}>Реєстрація</Text>
             <View style={styles.inputsComtainer}>
               <Input
