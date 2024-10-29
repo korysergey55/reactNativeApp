@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
-import HeaderLogoutIcon from "../../iconsComponents/HeaderLogoutIcon";
+import HeaderLogoutIcon from "../../iconsComponents/headerIcons/HeaderLogoutIcon";
 
 const LogoutButton = () => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<any>();
 
   const onPressBtn = () => {
     navigate("Login");

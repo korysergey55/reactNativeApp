@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
-import HeaderRigthIcon from "../../iconsComponents/HeaderRigthIcon";
+import HeaderRigthIcon from "../../iconsComponents/headerIcons/HeaderRigthIcon";
 
 const GoBeckButton = () => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<any>();
 
   const onPressBtn = () => {
     navigate("Posts");

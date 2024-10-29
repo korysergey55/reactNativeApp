@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
 
+    paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
     backgroundColor: colors.bgColor,
@@ -34,8 +35,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     gap: 8,
-
-    marginTop: 32,
   },
   textWripper: {},
   userName: {
