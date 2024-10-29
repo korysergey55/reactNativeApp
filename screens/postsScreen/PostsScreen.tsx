@@ -1,35 +1,11 @@
-import React, { useState } from "react";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
-import UserAvatar from "../../components/userAvatar/UserAvatar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import PublicationItem from "../../components/publicationItem/PublicationItem";
+import UserAvatar from "../../components/userAvatar/UserAvatar";
+import PublicationList from "../../components/publicationList/publicationList";
 import { colors } from "../../assets/styles/globalStyles";
 
 const PostsScreen = () => {
-  // const [posts, setPost] = useState();
-  const posts = [
-    {
-      title: "1111",
-      comments: 5,
-      likes: 5,
-      location: "string",
-      source: require("../../assets/images/avatar.png"),
-    },
-    {
-      title: "2222",
-      comments: 7,
-      likes: 7,
-      location: "string",
-      source: require("../../assets/images/avatar.png"),
-    },
-    {
-      title: "3333",
-      comments: 7,
-      likes: 7,
-      location: "string",
-      source: require("../../assets/images/avatar.png"),
-    },
-  ];
   return (
     <View style={styles.container}>
       <View style={styles.userWripper}>
@@ -39,15 +15,7 @@ const PostsScreen = () => {
           <Text style={styles.userEmail}>email@example.com</Text>
         </View>
       </View>
-      <ScrollView>
-        {posts.map((post, index) => {
-          return <PublicationItem item={post} />;
-        })}
-      </ScrollView>
-      {/* <FlatList
-        data={posts}
-        renderItem={({ item }) => <PublicationItem item={item} />}
-      /> */}
+      <PublicationList />
     </View>
   );
 };

@@ -1,43 +1,45 @@
 import React, { FC } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import CommentIcon from "../../iconsComponents/postItemIcons/CommentIcon";
 import LikeIcon from "../../iconsComponents/postItemIcons/LikeIcon";
 import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
 
 import { colors } from "../../assets/styles/globalStyles";
+type propsTypes = {
+  item: {
+    title: string;
+    comments?: number;
+    likes?: number;
+    location?: string;
+    source: any;
+  };
+};
 
-// type propsTypes = {
-//   title: string;
-//   comments?: number;
-//   likes?: number;
-//   location?: string;
-//   source: any;
-// };
-type propsTypes = any;
-
+const { width: diwiceWidth } = Dimensions.get("screen");
 const PublicationItem: FC<propsTypes> = ({ item }) => {
+  const { source, title, likes, comments, location } = item;
   return (
     <View style={styles.itemContainer}>
       <Image
         style={styles.image}
-        source={item.source}
-        width={20}
-        height={20}
+        source={source}
       />
-      <Text style={styles.title}>{item.title}</Text>
-      <View>
+      <Text style={styles.title}>{title}</Text>
+      <View style={styles.wripper}>
         <View style={styles.commentsWripper}>
           <CommentIcon />
-          <Text style={styles.comments}>{item.comments ? item.comments : 0}</Text>
+          <Text style={styles.comments}>{comments ? comments : 0}</Text>
         </View>
         <View style={styles.likesWripper}>
-          <LikeIcon />
-          <Text style={styles.likes}>{item.likes ? item.likes : 0}</Text>
+          <TouchableOpacity>
+            <LikeIcon />
+          </TouchableOpacity>
+          <Text style={styles.likes}>{likes ? likes : 0}</Text>
         </View>
         <View style={styles.locationWripper}>
           <LocationIcon />
-          <Text style={styles.location}>{item.location ? item.location : "No location"}</Text>
+          <Text style={styles.location}>{location ? location : "No location"}</Text>
         </View>
       </View>
     </View>
@@ -45,16 +47,22 @@ const PublicationItem: FC<propsTypes> = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
-  itemContainer: {},
-  image: {},
+  itemContainer: { width: "100%" },
+  image: { width: "100%", minWidth: 30, borderRadius: 8 },
   title: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
     fontWeight: 500,
     lineHeight: 19,
+
+    marginTop: 8,
     color: colors.primaryTextColor,
   },
-  commentsWripper: {},
+  wripper: {
+    flexDirection: "row",
+    marginTop: 8,
+  },
+  commentsWripper: { flexDirection: "row", gap: 6 },
   comments: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
@@ -62,7 +70,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: colors.primaryTextColor,
   },
-  likesWripper: {},
+  likesWripper: { flexDirection: "row", gap: 6, marginLeft: 24 },
   likes: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
@@ -70,7 +78,7 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: colors.primaryTextColor,
   },
-  locationWripper: {},
+  locationWripper: { flexDirection: "row", gap: 6, marginLeft: "auto", marginRight: 0 },
   location: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,

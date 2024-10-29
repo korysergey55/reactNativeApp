@@ -24,7 +24,7 @@ import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<any>();
   const [loginValue, setLogin] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
