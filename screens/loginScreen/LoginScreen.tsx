@@ -23,7 +23,7 @@ import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const LoginScreen = () => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<any>();
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);

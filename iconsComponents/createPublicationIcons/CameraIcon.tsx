@@ -7,6 +7,7 @@ const CameraIcon = (props: any) => (
     height={24}
     fill="none"
     {...props}
+    style={props.style}
   >
     <G
       fill="#BDBDBD"

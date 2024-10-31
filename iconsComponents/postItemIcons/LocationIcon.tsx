@@ -6,6 +6,7 @@ const LocationIcon = (props: any) => (
     width={24}
     height={24}
     fill="none"
+    style={props.style ? props.style : ""}
     {...props}
   >
     <Path
