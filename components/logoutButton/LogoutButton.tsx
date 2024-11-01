@@ -1,9 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import HeaderLogoutIcon from "../../iconsComponents/headerIcons/HeaderLogoutIcon";
+import { ViewProps } from "react-native-svg/lib/typescript/fabric/utils";
 
-const LogoutButton = () => {
+type propTypes = {
+  outerStyles?: ViewProps["style"];
+};
+
+const LogoutButton: FC<propTypes> = ({ outerStyles }) => {
   const { navigate } = useNavigation<any>();
 
   const onPressBtn = () => {
@@ -11,7 +16,10 @@ const LogoutButton = () => {
   };
 
   return (
-    <TouchableOpacity onPress={onPressBtn}>
+    <TouchableOpacity
+      onPress={onPressBtn}
+      style={[outerStyles ? outerStyles : null]}
+    >
       <HeaderLogoutIcon />
     </TouchableOpacity>
   );

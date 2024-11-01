@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View, ViewProps } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View, ViewProps } from "react-native";
 
-import AvatarIconSvg from "../avatarIcon/AvatarIcon";
+import defaultAvatarImage from "../../assets/images/default-avatar-image.jpg";
+import avatarImage from "../../assets/images/avatar.png";
+
+import AddAvatarIconSvg from "../../iconsComponents/avatarIcon/AddAvatarIconSvg";
+import EditAvatarIcon from "../../iconsComponents/avatarIcon/EditAvatarIcon";
 
 type Props = {
   outerStyles?: ViewProps["style"];
@@ -9,16 +13,25 @@ type Props = {
 };
 
 const UserAvatar: React.FC<Props> = ({ outerStyles, button = false }) => {
-  const [imageData, setImageData] = useState("");
+  const [imageData, setImageData] = useState(false);
+
+  const changeAvatar = () => {
+    setImageData(!imageData);
+  };
+
   return (
     <View style={[styles.imageContainer, outerStyles]}>
       <Image
-        source={require("../../assets/images/avatar.png")}
+        // source={require("../../assets/images/avatar.png")}
+        source={imageData ? avatarImage : defaultAvatarImage}
         style={styles.image}
       />
       {button && (
-        <TouchableOpacity style={styles.button}>
-          <AvatarIconSvg />
+        <TouchableOpacity
+          style={styles.button}
+          onPress={changeAvatar}
+        >
+          {imageData ? <EditAvatarIcon /> : <AddAvatarIconSvg />}
         </TouchableOpacity>
       )}
     </View>

@@ -13,12 +13,11 @@ import {
   Keyboard,
 } from "react-native";
 
-import { colors } from "../../assets/styles/globalStyles";
-import heroImage from "../../assets/images/heroImage.jpg";
-
 import Input from "../../components/input/Input";
 import FormButton from "../../components/button/FormButton";
 import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
+
+import { colors } from "../../assets/styles/globalStyles";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
@@ -66,7 +65,7 @@ const LoginScreen = () => {
       >
         <View style={styles.container}>
           <Image
-            source={heroImage}
+            source={require("../../assets/images/heroImage.jpg")}
             style={styles.image}
             resizeMode="cover"
           />

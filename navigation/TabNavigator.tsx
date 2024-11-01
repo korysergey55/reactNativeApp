@@ -55,8 +55,9 @@ const TabNavigator = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          title: "Профіль",
-          headerRight: () => <LogoutButton />,
+          title: "",
+          headerShown: false,
+          // headerRight: () => <LogoutButton />,
           tabBarShowLabel: false,
           tabBarIcon: ({ focused }) => <TabProfileIcon color={focused && colors.buttonColor} />,
         }}

@@ -1,11 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Dimensions, Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
+import UserProfile from "../../components/userProfile/UserProfile";
+const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const ProfileScreen = () => {
   return (
-    <View>
-      <Text style={styles.title}>ProfileScreen</Text>
-    </View>
+    <SafeAreaView>
+      <Image
+        source={require("../../assets/images/heroImage.jpg")}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <UserProfile />
+    </SafeAreaView>
   );
 };
 
@@ -15,6 +22,11 @@ const styles = StyleSheet.create({
     fontSize: 32,
     textAlign: "center",
     color: "black",
+  },
+  image: {
+    position: "absolute",
+    width: diwiceWidth,
+    height: diwiceHeight,
   },
 });
 
