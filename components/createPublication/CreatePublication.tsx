@@ -9,11 +9,12 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import FormButton from "../button/FormButton";
+
 import { colors } from "../../assets/styles/globalStyles";
 import CameraIcon from "../../iconsComponents/createPublicationIcons/CameraIcon";
 import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
-import FormButton from "../button/FormButton";
-import RemuveIcon from "../../iconsComponents/createPublicationIcons/remuveIcon";
+import RemuveIcon from "../../iconsComponents/createPublicationIcons/RemuveIcon";
 
 const CreatePublication = () => {
   const [isPhotoUploaded, setIsPhotoUploaded] = useState(true);
@@ -40,6 +41,10 @@ const CreatePublication = () => {
 
   const onSubmit = () => {
     console.log(onSubmit);
+    alert("Publication published");
+    setIsPhotoUploaded(false);
+    setPhotoTitle("");
+    setPhotoLocation("");
   };
   return (
     <View style={styles.container}>

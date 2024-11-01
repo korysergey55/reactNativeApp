@@ -13,6 +13,8 @@ import TabPublicationsIcon from "../iconsComponents/tabBarIcons/TabPublicationsI
 import TabCreatePublicationIcon from "../iconsComponents/tabBarIcons/TabCreatePublicationIcon";
 import TabProfileIcon from "../iconsComponents/tabBarIcons/TabProfileIcon";
 
+import StackNavigator from "./StackNavigator";
+
 const TabNavigator = () => {
   const TabNavigator = createBottomTabNavigator();
   return (
@@ -45,7 +47,6 @@ const TabNavigator = () => {
         options={{
           title: "Створити публікацію",
           headerLeft: () => <GoBeckButton />,
-          headerRight: () => <LogoutButton />,
           tabBarShowLabel: false,
           tabBarIcon: () => <TabCreatePublicationIcon />,
         }}
@@ -55,6 +56,7 @@ const TabNavigator = () => {
         component={ProfileScreen}
         options={{
           title: "Профіль",
+          headerRight: () => <LogoutButton />,
           tabBarShowLabel: false,
           tabBarIcon: ({ focused }) => <TabProfileIcon color={focused && colors.buttonColor} />,
         }}
