@@ -1,16 +1,18 @@
 import React, { FC } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { conmmentTypes } from "../../types/types";
 
 import CommentIcon from "../../iconsComponents/postItemIcons/CommentIcon";
 import LikeIcon from "../../iconsComponents/postItemIcons/LikeIcon";
 import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
 
 import { colors } from "../../assets/styles/globalStyles";
+
 type propsTypes = {
   item: {
     title: string;
-    comments?: number;
+    comments?: conmmentTypes[];
     likes?: number;
     location?: string;
     source: any;
@@ -18,7 +20,7 @@ type propsTypes = {
 };
 
 const PublicationItem: FC<propsTypes> = ({ item }) => {
-  const { navigate } = useNavigation<any>();
+  const { navigate, setParams } = useNavigation<any>();
   const { source, title, likes, comments, location } = item;
   return (
     <View style={styles.itemContainer}>
@@ -31,12 +33,14 @@ const PublicationItem: FC<propsTypes> = ({ item }) => {
         <View style={styles.commentsWripper}>
           <TouchableOpacity
             onPress={() => {
-              navigate("Comments");
+              navigate("Comments", {
+                commentItemData: item,
+              });
             }}
           >
             <CommentIcon />
           </TouchableOpacity>
-          <Text style={styles.comments}>{comments ? comments : 0}</Text>
+          <Text style={styles.comments}>{comments?.length ? comments.length : 0}</Text>
         </View>
         <View style={styles.likesWripper}>
           <TouchableOpacity>

@@ -6,21 +6,60 @@ const PublicationList = () => {
   const [posts, setPost] = useState([
     {
       title: "Захід на Чорному морі",
-      comments: 5,
+      comments: [
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+      ],
       likes: 5,
       location: "Ukraine",
       source: require("../../assets/images/publicationImage.png"),
     },
     {
       title: "Старий будиночок у Венеції",
-      comments: 7,
+      comments: [
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+      ],
       likes: 7,
       location: "Italy",
       source: require("../../assets/images/publicationImage.png"),
     },
     {
       title: "Ліс",
-      comments: 5,
+      comments: [
+        {
+          comment: "sdsdsd",
+          date: "16-05-2024",
+        },
+      ],
       likes: 1,
       location: "Ukraine",
       source: require("../../assets/images/publicationImage.png"),
