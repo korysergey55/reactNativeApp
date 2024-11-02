@@ -20,14 +20,17 @@ import Input from "../../components/input/Input";
 import FormButton from "../../components/button/FormButton";
 import UserAvatar from "../../components/userAvatar/UserAvatar";
 import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
+import validateEmail from "../../utiles/emailValidation";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
   const { navigate } = useNavigation<any>();
+
   const [loginValue, setLogin] = useState("");
   const [emailValue, setEmail] = useState("");
   const [passwordValue, setPassword] = useState("");
+
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const [isUsetRegistrated, setIsUsetRegistrated] = useState(false);
 
@@ -53,10 +56,16 @@ const RegistrationScreen = () => {
 
   const onSubmit = () => {
     console.log(`email:${emailValue}, password:${passwordValue}`);
-    if (loginValue && passwordValue && emailValue) {
-      setIsUsetRegistrated(true);
-      navigate("Login");
+    if (!validateEmail(emailValue)) {
+      alert("Email is not valid. Pleasee enter valid email.");
+      return;
     }
+    if (passwordValue.length < 6) {
+      alert("Password must be at least 6 characters long.");
+      return;
+    }
+    setIsUsetRegistrated(true);
+    navigate("Login");
   };
 
   return (
@@ -176,7 +185,7 @@ const styles = StyleSheet.create({
   },
   outerAvatarStyles: {
     position: "absolute",
-    top: "-20%",
+    top: "-10%",
     zIndex: 10,
   },
 

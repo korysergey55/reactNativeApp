@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 const CommentsScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text style={styles.title}>CommentsScreen</Text>
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import CommentIcon from "../../iconsComponents/postItemIcons/CommentIcon";
 import LikeIcon from "../../iconsComponents/postItemIcons/LikeIcon";
@@ -16,8 +17,8 @@ type propsTypes = {
   };
 };
 
-const { width: diwiceWidth } = Dimensions.get("screen");
 const PublicationItem: FC<propsTypes> = ({ item }) => {
+  const { navigate } = useNavigation<any>();
   const { source, title, likes, comments, location } = item;
   return (
     <View style={styles.itemContainer}>
@@ -28,7 +29,13 @@ const PublicationItem: FC<propsTypes> = ({ item }) => {
       <Text style={styles.title}>{title}</Text>
       <View style={styles.wripper}>
         <View style={styles.commentsWripper}>
-          <CommentIcon />
+          <TouchableOpacity
+            onPress={() => {
+              navigate("Comments");
+            }}
+          >
+            <CommentIcon />
+          </TouchableOpacity>
           <Text style={styles.comments}>{comments ? comments : 0}</Text>
         </View>
         <View style={styles.likesWripper}>

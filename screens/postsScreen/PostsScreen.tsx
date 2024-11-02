@@ -35,6 +35,8 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     gap: 8,
+
+    marginBottom: 20,
   },
   textWripper: {},
   userName: {

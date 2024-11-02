@@ -57,13 +57,11 @@ const TabNavigator = () => {
         options={{
           title: "",
           headerShown: false,
-          // headerRight: () => <LogoutButton />,
           tabBarShowLabel: false,
           tabBarIcon: ({ focused }) => <TabProfileIcon color={focused && colors.buttonColor} />,
         }}
       />
     </TabNavigator.Navigator>
-    // </NavigationContainer>
   );
 };
 

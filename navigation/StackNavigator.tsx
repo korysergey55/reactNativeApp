@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import HomeScreen from "../screens/homeScreen/HomeScreen";
@@ -11,6 +12,10 @@ import ProfileScreen from "../screens/profileScreen/ProfileScreen";
 import MapScreen from "../screens/mapScreen/MapScreen";
 
 import TabNavigator from "./TabNavigator";
+import GoBeckButton from "../components/goBeckButton/GoBeckButton";
+import TabCreatePublicationIcon from "../iconsComponents/tabBarIcons/TabCreatePublicationIcon";
+
+import { colors } from "../assets/styles/globalStyles";
 
 const StackNavigator = () => {
   const StackNavigator = createStackNavigator();
@@ -19,6 +24,7 @@ const StackNavigator = () => {
       initialRouteName="Login"
       screenOptions={{
         headerShown: false,
+        headerTitleStyle: styles.header,
       }}
     >
       <StackNavigator.Screen
@@ -52,14 +58,24 @@ const StackNavigator = () => {
       />
       <StackNavigator.Screen
         name="Posts"
-        component={PostsScreen}
+        component={TabNavigator}
       />
       <StackNavigator.Screen
         name="CreatePosts"
         component={CreatePostsScreen}
+        options={{
+          title: "Створити публікацію",
+          headerLeft: () => <GoBeckButton />,
+        }}
       />
       <StackNavigator.Screen
         name="Comments"
+        options={{
+          title: "Коментарі",
+          headerShown: true,
+          headerLeft: () => <GoBeckButton />,
+          headerLeftContainerStyle: { paddingLeft: 16 },
+        }}
         component={CommentsScreen}
       />
       <StackNavigator.Screen
@@ -73,5 +89,14 @@ const StackNavigator = () => {
     </StackNavigator.Navigator>
   );
 };
+const styles = StyleSheet.create({
+  header: {
+    fontFamily: "Roboto-Regular",
+    fontSize: 17,
+    fontWeight: 500,
+    lineHeight: 22,
+    color: colors.primaryTextColor,
+  },
+});
 
 export default StackNavigator;

@@ -84,12 +84,14 @@ const CreatePublication = () => {
           isDisabled={isButtonDisable}
         />
       </View>
-      <TouchableOpacity
-        style={styles.remuveBtn}
-        onPress={() => {}}
-      >
-        <RemuveIcon style={styles.remuveIcon} />
-      </TouchableOpacity>
+      {!isButtonDisable && (
+        <TouchableOpacity
+          style={styles.remuveBtn}
+          onPress={() => {}}
+        >
+          <RemuveIcon style={styles.remuveIcon} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -100,7 +102,7 @@ const styles = StyleSheet.create({
 
     flexDirection: "column",
     alignContent: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
   cameraContainer: {
     alignContent: "center",
