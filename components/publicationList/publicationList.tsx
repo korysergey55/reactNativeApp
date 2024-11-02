@@ -8,15 +8,18 @@ const PublicationList = () => {
       title: "Захід на Чорному морі",
       comments: [
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
       ],
@@ -28,23 +31,28 @@ const PublicationList = () => {
       title: "Старий будиночок у Венеції",
       comments: [
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
       ],
@@ -56,7 +64,8 @@ const PublicationList = () => {
       title: "Ліс",
       comments: [
         {
-          comment: "sdsdsd",
+          comment:
+            "Really love your most recent photo. I’ve been trying to capture the same thing for a few months and would love some tips!",
           date: "16-05-2024",
         },
       ],
