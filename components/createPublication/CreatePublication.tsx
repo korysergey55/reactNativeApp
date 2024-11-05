@@ -9,7 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
 import FormButton from "../button/FormButton";
+import UserCamera from "./userCamera/UserCamera";
 
 import { colors } from "../../assets/styles/globalStyles";
 import CameraIcon from "../../iconsComponents/createPublicationIcons/CameraIcon";
@@ -62,6 +64,7 @@ const CreatePublication = () => {
       <Text style={styles.discription}>
         {isPhotoUploaded ? "Завантажте фото" : "Редагувати фото"}
       </Text>
+      <UserCamera />
       <View style={styles.form}>
         <TextInput
           value={photoTitle}
