@@ -10,11 +10,10 @@ import {
   View,
 } from "react-native";
 
+import Camera from "../camera/Camera";
 import FormButton from "../button/FormButton";
-import UserCamera from "./userCamera/UserCamera";
 
 import { colors } from "../../assets/styles/globalStyles";
-import CameraIcon from "../../iconsComponents/createPublicationIcons/CameraIcon";
 import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
 import RemuveIcon from "../../iconsComponents/createPublicationIcons/RemuveIcon";
 
@@ -55,16 +54,11 @@ const CreatePublication = () => {
           // source={require("../../assets/images/publicationImage.png")}
           style={[styles.image]}
         />
-        <TouchableOpacity
-          style={[styles.cameraButton, isPhotoUploaded ? { backgroundColor: "#FFFFFF4D" } : null]}
-        >
-          <CameraIcon style={styles.cameraIcon} />
-        </TouchableOpacity>
+        <Camera outerStyle={isPhotoUploaded && true} />
       </View>
       <Text style={styles.discription}>
         {isPhotoUploaded ? "Завантажте фото" : "Редагувати фото"}
       </Text>
-      <UserCamera />
       <View style={styles.form}>
         <TextInput
           value={photoTitle}
@@ -124,21 +118,7 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 8,
   },
-  cameraButton: {
-    position: "absolute",
-    top: "40%",
-    alignContent: "center",
-    justifyContent: "center",
 
-    width: 60,
-    height: 60,
-    backgroundColor: colors.bgColor,
-    borderRadius: 50,
-  },
-  cameraIcon: {
-    position: "absolute",
-    left: "30%",
-  },
   discription: {
     marginTop: 8,
 
