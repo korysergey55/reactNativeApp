@@ -1,17 +1,22 @@
-import { FC, useState } from "react";
+import { FC, useRef, useState } from "react";
 import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
 import { CameraView, CameraType, useCameraPermissions } from "expo-camera";
+import * as MediaLibrary from "expo-media-library";
 
 import CameraIcon from "../../iconsComponents/createPublicationIcons/CameraIcon";
 import { colors } from "../../assets/styles/globalStyles";
 
 type PropTypes = {
   outerStyle?: boolean;
+  saveDataImage: (image: any) => any;
 };
 
-const Camera: FC<PropTypes> = ({ outerStyle = false }) => {
+const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
   const [facing, setFacing] = useState<CameraType>("back");
   const [permission, requestPermission] = useCameraPermissions();
+  const [permissionResponse, requestLibraryPermission] = MediaLibrary.usePermissions();
+  const camera = useRef();
 
   if (!permission) {
     // Camera permissions are still loading.
@@ -35,15 +40,23 @@ const Camera: FC<PropTypes> = ({ outerStyle = false }) => {
     setFacing(current => (current === "back" ? "front" : "back"));
   }
 
+  const takePhoto = async () => {
+    if (!camera) return;
+    const image = await camera.current?.takePictureAsync();
+    await MediaLibrary.saveToLibraryAsync(image.uri);
+    saveDataImage(image);
+  };
+
   return (
     <View style={styles.cameracContainer}>
       <CameraView
         facing={facing}
         style={[styles.camera, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
+        ref={camera}
       >
         <TouchableOpacity
           style={[styles.cameraButton, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
-          onPress={toggleCameraFacing}
+          onPress={takePhoto}
         >
           <CameraIcon style={styles.cameraIcon} />
         </TouchableOpacity>

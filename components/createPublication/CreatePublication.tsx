@@ -40,6 +40,10 @@ const CreatePublication = () => {
     setPhotoLocation(value);
   };
 
+  const saveDataImage = (image: any) => {
+    setIsPhotoUploaded(image);
+  };
+
   const onSubmit = () => {
     console.log(onSubmit);
     alert("Publication published");
@@ -54,7 +58,10 @@ const CreatePublication = () => {
           // source={require("../../assets/images/publicationImage.png")}
           style={[styles.image]}
         />
-        <Camera outerStyle={isPhotoUploaded && true} />
+        <Camera
+          outerStyle={isPhotoUploaded && true}
+          saveDataImage={saveDataImage}
+        />
       </View>
       <Text style={styles.discription}>
         {isPhotoUploaded ? "Завантажте фото" : "Редагувати фото"}
