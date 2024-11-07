@@ -1,11 +1,27 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet } from "react-native";
+import { useRoute } from "@react-navigation/native";
+
+import Map from "../../components/map/Map";
+import { imageLocationTypes } from "../../types/types";
 
 const MapScreen = () => {
+  const [position, setPosition] = useState<imageLocationTypes>();
+  const {
+    params: { imageLocation },
+  } = useRoute<any>();
+
+  useEffect(() => {
+    if (imageLocation) {
+      setPosition(imageLocation);
+    }
+  }, [imageLocation]);
+
   return (
-    <View>
-      <Text style={styles.title}>MapScreen</Text>
-    </View>
+    <SafeAreaView>
+      <Map position={position && position} />
+    </SafeAreaView>
   );
 };
 

@@ -70,13 +70,13 @@ const StackNavigator = () => {
       />
       <StackNavigator.Screen
         name="Comments"
+        component={CommentsScreen}
         options={{
           title: "Коментарі",
           headerShown: true,
           headerLeft: () => <GoBeckButton />,
           headerLeftContainerStyle: { paddingLeft: 16 },
         }}
-        component={CommentsScreen}
       />
       <StackNavigator.Screen
         name="Profile"
@@ -85,6 +85,12 @@ const StackNavigator = () => {
       <StackNavigator.Screen
         name="Map"
         component={MapScreen}
+        options={{
+          title: "Map",
+          headerShown: true,
+          headerLeft: () => <GoBeckButton />,
+          headerLeftContainerStyle: { paddingLeft: 16 },
+        }}
       />
     </StackNavigator.Navigator>
   );

@@ -20,8 +20,13 @@ type propsTypes = {
 };
 
 const PublicationItem: FC<propsTypes> = ({ item }) => {
-  const { navigate, setParams } = useNavigation<any>();
+  const { navigate } = useNavigation<any>();
   const { source, title, likes, comments, location } = item;
+
+  const setLocation = () => {
+    navigate("Map", { imageLocation: { latitude: 37.78825, longitude: -122.4324 } });
+  };
+
   return (
     <View style={styles.itemContainer}>
       <Image
@@ -48,10 +53,13 @@ const PublicationItem: FC<propsTypes> = ({ item }) => {
           </TouchableOpacity>
           <Text style={styles.likes}>{likes ? likes : 0}</Text>
         </View>
-        <View style={styles.locationWripper}>
+        <TouchableOpacity
+          style={styles.locationWripper}
+          onPress={setLocation}
+        >
           <LocationIcon />
           <Text style={styles.location}>{location ? location : "No location"}</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -95,6 +103,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 500,
     lineHeight: 19,
+    textDecorationLine: "underline",
+
     color: colors.primaryTextColor,
   },
 });
