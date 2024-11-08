@@ -51,11 +51,13 @@ const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
     <View style={styles.cameracContainer}>
       <CameraView
         facing={facing}
-        style={[styles.camera, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
+        // style={[styles.camera, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
+        style={styles.camera}
         ref={camera}
       >
         <TouchableOpacity
-          style={[styles.cameraButton, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
+          // style={[styles.cameraButton, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
+          style={styles.cameraButton}
           onPress={takePhoto}
         >
           <CameraIcon style={styles.cameraIcon} />

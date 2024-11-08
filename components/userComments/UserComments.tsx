@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 700,
+    fontWeight: "700",
     lineHeight: 19,
 
     marginTop: 8,

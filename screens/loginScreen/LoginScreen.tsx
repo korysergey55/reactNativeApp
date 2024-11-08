@@ -83,7 +83,14 @@ const LoginScreen = () => {
                 secureTextEntry={isPasswordVisible}
                 placeholder="Пароль"
                 outerStyles={styles.outerStylesBtn}
-                rightButton={<ShowPasswordBtn handleShowPassword={handleShowPassword} />}
+                rightButton={
+                  passwordValue.length ? (
+                    <ShowPasswordBtn
+                      text={isPasswordVisible ? "Показати" : "Приховати"}
+                      handleShowPassword={handleShowPassword}
+                    />
+                  ) : null
+                }
               />
             </View>
             <FormButton
@@ -141,7 +148,7 @@ const styles = StyleSheet.create({
     marginTop: 32,
     fontFamily: "Roboto-Regular",
     fontSize: 30,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 35,
     textAlign: "center",
     color: colors.primaryTextColor,
@@ -154,6 +161,7 @@ const styles = StyleSheet.create({
   outerStylesBtn: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignContent: "center",
   },
   outerAvatarStyles: {
     position: "absolute",

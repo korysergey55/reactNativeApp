@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
 
     fontFamily: "Roboto-Regular",
     fontSize: 30,
-    fontWeight: 500,
+    fontWeight: "500",
     textAlign: "center",
     color: colors.primaryTextColor,
   },

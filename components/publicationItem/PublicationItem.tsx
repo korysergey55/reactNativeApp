@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 19,
 
     marginTop: 8,
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   comments: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     lineHeight: 19,
     color: colors.primaryTextColor,
   },
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
   likes: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 19,
     color: colors.primaryTextColor,
   },
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   location: {
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 19,
     textDecorationLine: "underline",
 

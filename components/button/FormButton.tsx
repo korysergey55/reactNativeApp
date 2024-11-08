@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 
     fontFamily: "Roboto-Regular",
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     textAlign: "center",
     lineHeight: 18.75,
 

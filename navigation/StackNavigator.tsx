@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import HomeScreen from "../screens/homeScreen/HomeScreen";
 import RegistrationScreen from "../screens/registrationScreen/RegistrationScreen";
 import LoginScreen from "../screens/loginScreen/LoginScreen";
 import PostsScreen from "../screens/postsScreen/PostsScreen";
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
   header: {
     fontFamily: "Roboto-Regular",
     fontSize: 17,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 22,
     color: colors.primaryTextColor,
   },

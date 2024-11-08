@@ -42,14 +42,14 @@ const styles = StyleSheet.create({
   userName: {
     fontFamily: "Roboto-Regular",
     fontSize: 13,
-    fontWeight: 700,
+    fontWeight: "700",
     lineHeight: 15,
     color: colors.primaryTextColor,
   },
   userEmail: {
     fontFamily: "Roboto-Regular",
     fontSize: 11,
-    fontWeight: 400,
+    fontWeight: "400",
     lineHeight: 15,
     color: "rgba(33, 33, 33, 0.8),",
   },

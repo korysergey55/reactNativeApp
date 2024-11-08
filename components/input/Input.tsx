@@ -46,10 +46,10 @@ const Input: FC<InputProps> = ({
 const styles = StyleSheet.create({
   input: {
     width: "100%",
-    height: 50,
+    minHeight: 50,
     overflow: "hidden",
 
-    padding: 16,
+    padding: 10,
     borderRadius: 8,
     borderWidth: 1,
 

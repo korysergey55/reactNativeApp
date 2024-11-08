@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   comment: {
     fontFamily: "Roboto-Regular",
     fontSize: 18,
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 18,
     color: colors.primaryTextColor,
   },
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 
     fontFamily: "Roboto-Regular",
     fontSize: 10,
-    fontWeight: 400,
+    fontWeight: "400",
     lineHeight: 11,
 
     color: colors.secondoryTextColor,

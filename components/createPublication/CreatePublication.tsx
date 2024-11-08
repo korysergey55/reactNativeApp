@@ -101,8 +101,8 @@ const CreatePublication = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
+    // width: "100%",
+    // height: "100%",
 
     flexDirection: "column",
     alignContent: "center",
@@ -113,9 +113,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
 
-    width: "100%",
-    height: "auto",
-    minHeight: 240,
+    height: 240,
 
     borderRadius: 8,
     backgroundColor: colors.borderColor,
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
 
     fontSize: 16,
-    fontWeight: 400,
+    fontWeight: "400",
     lineHeight: 18,
     color: colors.secondoryTextColor,
   },
