@@ -21,6 +21,7 @@ const ShowPasswordBtn: React.FC<PropTypes> = ({ text, handleShowPassword }) => {
 };
 const styles = StyleSheet.create({
   showPasswordBtn: {
+    alignItems: "center",
     fontFamily: "Roboto-Medium",
     fontSize: 16,
     lineHeight: 18.75,

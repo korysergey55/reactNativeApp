@@ -13,8 +13,9 @@ import { Provider, useDispatch } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import store from "./redax/store/store";
 
-import { colors } from "./assets/styles/globalStyles";
 import { authStateChanged } from "./utiles/auth";
+
+import { colors } from "./assets/styles/globalStyles";
 
 SplashScreen.preventAutoHideAsync();
 

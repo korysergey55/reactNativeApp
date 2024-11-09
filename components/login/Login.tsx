@@ -92,7 +92,7 @@ const Login = () => {
           rightButton={
             password.length ? (
               <ShowPasswordBtn
-                text={isPasswordVisible ? "Schow" : "Hide"}
+                text={isPasswordVisible ? "Show" : "Hide"}
                 handleShowPassword={handleShowPassword}
               />
             ) : null

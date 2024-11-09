@@ -10,7 +10,7 @@ type InputProps = {
   rightButton?: any;
   secureTextEntry?: boolean;
 };
-// React.JSX.Element
+
 const Input: FC<InputProps> = ({
   value,
   onChange,
@@ -48,6 +48,9 @@ const styles = StyleSheet.create({
     width: "100%",
     minHeight: 50,
     overflow: "hidden",
+
+    justifyContent: "center",
+    alignItems: "flex-start",
 
     padding: 10,
     borderRadius: 8,
