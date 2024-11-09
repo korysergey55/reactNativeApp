@@ -11,8 +11,8 @@ export type imageLocationTypes = {
 export type userDataType = {
   uid: string;
   email: string;
-  displayName: string;
-  profilePhoto: string;
+  displayName?: string;
+  profilePhoto?: string;
 };
 
 export type postItemType = {
