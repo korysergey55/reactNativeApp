@@ -31,4 +31,10 @@ const store = configureStore({
 
 const persistor = persistStore(store);
 
+// Експортуємо RootState та AppDispatch для використання у проекті
+export type RootState = ReturnType<typeof store.getState>;
+
+// Експортуємо тип `AppDispatch`, щоб використовувати у функціях
+export type AppDispatch = typeof store.dispatch;
+
 export default { store, persistor };

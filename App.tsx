@@ -9,11 +9,12 @@ import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigator from "./navigation/StackNavigator";
 
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import store from "./redax/store/store";
 
 import { colors } from "./assets/styles/globalStyles";
+import { authStateChanged } from "./utiles/auth";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -46,10 +47,25 @@ export default function App() {
         loading={<Text>Loading...</Text>}
         persistor={store.persistor}
       >
-        <NavigationContainer>
+        <AuthListener />
+        {/* <NavigationContainer>
           <StackNavigator />
-        </NavigationContainer>
+        </NavigationContainer> */}
       </PersistGate>
     </Provider>
   );
 }
+
+const AuthListener = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    authStateChanged(dispatch);
+  }, [dispatch]);
+
+  return (
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
+  );
+};

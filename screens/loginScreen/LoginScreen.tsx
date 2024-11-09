@@ -19,18 +19,20 @@ import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 
 import { colors } from "../../assets/styles/globalStyles";
 import { getUserInfoSelector } from "../../redax/selectors/selectors";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { loginDB } from "../../utiles/auth";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const LoginScreen = () => {
   const { navigate } = useNavigation<any>();
-  const [emailValue, setEmail] = useState("");
-  const [passwordValue, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const [isUsetLogined, setisUsetLogined] = useState(false);
 
   const getUserInfo = useSelector(getUserInfoSelector);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setEmail("");
@@ -51,14 +53,21 @@ const LoginScreen = () => {
     setIsPasswordVisible(prev => !prev);
   }
 
-  const onSubmit = () => {
-    console.log(`email:${emailValue}, password:${passwordValue}`);
-    if (!emailValue || !passwordValue) {
+  const onSubmit = async () => {
+    console.log(`email:${email}, password:${password}`);
+    console.log("onLogin");
+    if (!email || !password) {
       alert("Feelds cant be empty");
       return;
     }
-    setisUsetLogined(true);
-    navigate("Home");
+    try {
+      // Логіка для переходу на інший екран або відображення повідомлення про успіх
+      await loginDB({ email, password }, dispatch);
+      setisUsetLogined(true);
+      navigate("Home");
+    } catch (err) {
+      console.error("Login error:", err);
+    }
   };
 
   return (
@@ -77,18 +86,18 @@ const LoginScreen = () => {
             <Text style={styles.formTitle}>Увійти</Text>
             <View style={styles.inputsComtainer}>
               <Input
-                value={emailValue}
+                value={email}
                 onChange={handleChangeEmail}
                 placeholder="Адреса електронної пошти"
               />
               <Input
-                value={passwordValue}
+                value={password}
                 onChange={handleChangePassword}
                 secureTextEntry={isPasswordVisible}
                 placeholder="Пароль"
                 outerStyles={styles.outerStylesBtn}
                 rightButton={
-                  passwordValue.length ? (
+                  password.length ? (
                     <ShowPasswordBtn
                       text={isPasswordVisible ? "Показати" : "Приховати"}
                       handleShowPassword={handleShowPassword}

@@ -21,15 +21,16 @@ import FormButton from "../../components/button/FormButton";
 import UserAvatar from "../../components/userAvatar/UserAvatar";
 import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 import validateEmail from "../../utiles/emailValidation";
+import { registerDB } from "../../utiles/auth";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
 const RegistrationScreen = () => {
   const { navigate } = useNavigation<any>();
 
-  const [loginValue, setLogin] = useState("");
-  const [emailValue, setEmail] = useState("");
-  const [passwordValue, setPassword] = useState("");
+  const [login, setLogin] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const [isUsetRegistrated, setIsUsetRegistrated] = useState(false);
@@ -54,18 +55,25 @@ const RegistrationScreen = () => {
     setIsPasswordVisible(prev => !prev);
   }
 
-  const onSubmit = () => {
-    console.log(`email:${emailValue}, password:${passwordValue}`);
-    if (!validateEmail(emailValue)) {
+  const onSubmit = async () => {
+    console.log(`email:${email}, password:${password}`);
+    if (!validateEmail(email)) {
       alert("Email is not valid. Pleasee enter valid email.");
       return;
     }
-    if (passwordValue.length < 6) {
+    if (password.length < 6) {
       alert("Password must be at least 6 characters long.");
       return;
     }
-    setIsUsetRegistrated(true);
-    navigate("Login");
+
+    try {
+      // Логіка для переходу на інший екран або відображення повідомлення про успіх
+      await registerDB({ email, password });
+      setIsUsetRegistrated(true);
+      navigate("Login");
+    } catch (err) {
+      console.error("Login error:", err);
+    }
   };
 
   return (
@@ -91,23 +99,23 @@ const RegistrationScreen = () => {
             <Text style={styles.formTitle}>Реєстрація</Text>
             <View style={styles.inputsComtainer}>
               <Input
-                value={loginValue}
+                value={login}
                 onChange={handleChangeLogin}
                 placeholder="Логін"
               />
               <Input
-                value={emailValue}
+                value={email}
                 onChange={handleChangeEmail}
                 placeholder="Адреса електронної пошти"
               />
               <Input
-                value={passwordValue}
+                value={password}
                 onChange={handleChangePassword}
                 secureTextEntry={isPasswordVisible}
                 placeholder="Пароль"
                 outerStyles={styles.outerStylesBtn}
                 rightButton={
-                  passwordValue.length ? (
+                  password.length ? (
                     <ShowPasswordBtn
                       text={isPasswordVisible ? "Показати" : "Приховати"}
                       handleShowPassword={handleShowPassword}
