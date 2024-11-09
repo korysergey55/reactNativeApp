@@ -17,6 +17,7 @@ const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
   const [permission, requestPermission] = useCameraPermissions();
   const [permissionResponse, requestLibraryPermission] = MediaLibrary.usePermissions();
   const camera = useRef();
+  console.log("Camera");
 
   if (!permission) {
     // Camera permissions are still loading.
@@ -41,10 +42,11 @@ const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
   }
 
   const takePhoto = async () => {
-    if (!camera) return;
-    const image = await camera.current?.takePictureAsync();
-    await MediaLibrary.saveToLibraryAsync(image.uri);
-    saveDataImage(image);
+    console.log("takePhoto");
+    // if (!camera) return;
+    // const image = await camera.current?.takePictureAsync();
+    // await MediaLibrary.saveToLibraryAsync(image.uri);
+    // saveDataImage(image);
   };
 
   return (
@@ -77,8 +79,10 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   cameracContainer: {
-    position: "absolute",
-    top: "40%",
+    width: 60,
+    height: 60,
+    // position: "absolute",
+    // top: "40%",
 
     alignContent: "center",
     justifyContent: "center",

@@ -18,6 +18,8 @@ import FormButton from "../../components/button/FormButton";
 import ShowPasswordBtn from "../../components/schowPasswordBtn/ShowPasswordBtn";
 
 import { colors } from "../../assets/styles/globalStyles";
+import { getUserInfoSelector } from "../../redax/selectors/selectors";
+import { useSelector } from "react-redux";
 
 const { width: diwiceWidth, height: diwiceHeight } = Dimensions.get("screen");
 
@@ -27,6 +29,8 @@ const LoginScreen = () => {
   const [passwordValue, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
   const [isUsetLogined, setisUsetLogined] = useState(false);
+
+  const getUserInfo = useSelector(getUserInfoSelector);
 
   useEffect(() => {
     setEmail("");

@@ -22,7 +22,6 @@ const Map: FC<PropTypes> = ({ position }) => {
           longitudeDelta: 0.0421,
         }}
         mapType="standard"
-        minZoomLevel={100}
         onMapReady={() => console.log("Map is ready")}
         onRegionChange={() => console.log("Region change")}
       >
@@ -34,6 +33,7 @@ const Map: FC<PropTypes> = ({ position }) => {
               : { latitude: 37.78825, longitude: -122.4324 }
           }
           description="Hello"
+          draggable={true}
         />
       </MapView>
     </View>
@@ -42,6 +42,7 @@ const Map: FC<PropTypes> = ({ position }) => {
 
 const styles = StyleSheet.create({
   container: {
+    width: "100%",
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",

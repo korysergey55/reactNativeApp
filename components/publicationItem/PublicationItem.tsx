@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { conmmentTypes } from "../../types/types";
+import { conmmentTypes, postItemType } from "../../types/types";
 
 import CommentIcon from "../../iconsComponents/postItemIcons/CommentIcon";
 import LikeIcon from "../../iconsComponents/postItemIcons/LikeIcon";
@@ -10,13 +10,7 @@ import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
 import { colors } from "../../assets/styles/globalStyles";
 
 type propsTypes = {
-  item: {
-    title: string;
-    comments?: conmmentTypes[];
-    likes?: number;
-    location?: string;
-    source: any;
-  };
+  item: postItemType;
 };
 
 const PublicationItem: FC<propsTypes> = ({ item }) => {

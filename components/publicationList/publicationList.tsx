@@ -75,7 +75,10 @@ const PublicationList = () => {
     },
   ]);
   return (
-    <ScrollView contentContainerStyle={styles.listContainer}>
+    <ScrollView
+      contentContainerStyle={styles.listContainer}
+      showsVerticalScrollIndicator={false}
+    >
       {posts?.map((post, index) => {
         return (
           <PublicationItem
@@ -92,7 +95,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 32,
+
     marginTop: 32,
+    paddingBottom: 50,
   },
 });
 

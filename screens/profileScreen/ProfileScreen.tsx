@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   image: {
     position: "absolute",
     width: diwiceWidth,
-    height: diwiceHeight,
+    // height: diwiceHeight,
   },
 });
 

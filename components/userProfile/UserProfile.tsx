@@ -24,12 +24,12 @@ const UserProfile = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: diwiceHeight,
 
     marginTop: 103,
+
+    paddingTop: 22,
     paddingLeft: 16,
     paddingRight: 16,
-    paddingTop: 22,
 
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   title: {
     marginTop: 46,
+    marginBottom: 20,
 
     fontFamily: "Roboto-Regular",
     fontSize: 30,

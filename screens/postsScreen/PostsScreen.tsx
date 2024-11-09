@@ -25,9 +25,11 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
 
+    marginBottom: 10,
     paddingTop: 32,
     paddingLeft: 16,
     paddingRight: 16,
+
     backgroundColor: colors.bgColor,
   },
   userWripper: {

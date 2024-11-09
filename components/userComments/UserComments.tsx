@@ -19,14 +19,18 @@ const UserComments = () => {
         source={commentItemData?.source ? commentItemData.source : ""}
       />
       <Text style={styles.title}>{commentItemData?.title ? commentItemData?.title : ""}</Text>
-      {commentItemData?.comments && <CommentsList commentsList={commentItemData?.comments} />}
+      {commentItemData?.comments ? (
+        <CommentsList commentsList={commentItemData?.comments} />
+      ) : (
+        <Text style={styles.title}>No comments yet</Text>
+      )}
     </View>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
-    height: "100%",
+    // width: "100%",
+    // height: "100%",
 
     alignItems: "center",
     justifyContent: "flex-start",

@@ -58,11 +58,15 @@ const CreatePublication = () => {
           // source={require("../../assets/images/publicationImage.png")}
           style={[styles.image]}
         />
-        <Camera
+        {/* <Camera
           outerStyle={isPhotoUploaded && true}
           saveDataImage={saveDataImage}
-        />
+        /> */}
       </View>
+      <Camera
+        outerStyle={isPhotoUploaded && true}
+        saveDataImage={saveDataImage}
+      />
       <Text style={styles.discription}>
         {isPhotoUploaded ? "Завантажте фото" : "Редагувати фото"}
       </Text>
