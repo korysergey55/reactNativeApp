@@ -21,13 +21,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.serhiy55.WoolfApp"
     },
     "web": {
       "favicon": "./assets/icons/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "02c54293-2ce1-48f2-be1b-d73bae970423"
+      }
+    }
   }
 }
