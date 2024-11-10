@@ -2,7 +2,6 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import RegistrationScreen from "../screens/registrationScreen/RegistrationScreen";
 import LoginScreen from "../screens/loginScreen/LoginScreen";
 import PostsScreen from "../screens/postsScreen/PostsScreen";
 import CreatePostsScreen from "../screens/createPostsScreen/CreatePostsScreen";
@@ -15,6 +14,7 @@ import GoBeckButton from "../components/goBeckButton/GoBeckButton";
 import TabCreatePublicationIcon from "../iconsComponents/tabBarIcons/TabCreatePublicationIcon";
 
 import { colors } from "../assets/styles/globalStyles";
+import RegistrationScreen from "../screens/RegistrationScreen/RegistrationScreen";
 
 const StackNavigator = () => {
   const StackNavigator = createStackNavigator();
