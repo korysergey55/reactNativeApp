@@ -15,7 +15,7 @@ import store from "./redax/store/store";
 
 import { authStateChanged } from "./utiles/auth";
 
-import { colors } from "./assets/styles/globalStyles";
+import Loader from "./components/reusable/loader/Loader";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -34,18 +34,13 @@ export default function App() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return (
-      <ActivityIndicator
-        color={colors.buttonColor}
-        size={"large"}
-      />
-    );
+    return <Loader />;
   }
 
   return (
     <Provider store={store.store}>
       <PersistGate
-        loading={<Text>Loading...</Text>}
+        loading={<Loader />}
         persistor={store.persistor}
       >
         <AuthListener />

@@ -6,12 +6,14 @@ interface stateTypes {
   userInfo: userDataType | null;
   userAllPosts: any[] | null;
   userPost: any;
+  isLoading:boolean
 }
 
 const initialState: stateTypes = {
   userInfo: null,
   userAllPosts: [],
   userPost: null,
+  isLoading:false
 };
 
 const userSlice = createSlice({

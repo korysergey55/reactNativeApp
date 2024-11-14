@@ -8,16 +8,16 @@ import CameraIcon from "../../iconsComponents/createPublicationIcons/CameraIcon"
 import { colors } from "../../assets/styles/globalStyles";
 
 type PropTypes = {
-  outerStyle?: boolean;
   saveDataImage: (image: any) => any;
+  active?: boolean;
 };
 
-const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
+const Camera: FC<PropTypes> = ({ saveDataImage, active }) => {
   const [facing, setFacing] = useState<CameraType>("back");
   const [permission, requestPermission] = useCameraPermissions();
   const [permissionResponse, requestLibraryPermission] = MediaLibrary.usePermissions();
-  const camera = useRef();
-  console.log("Camera");
+
+  const camera = useRef<any>(null);
 
   if (!permission) {
     // Camera permissions are still loading.
@@ -43,22 +43,25 @@ const Camera: FC<PropTypes> = ({ outerStyle = false, saveDataImage }) => {
 
   const takePhoto = async () => {
     console.log("takePhoto");
-    // if (!camera) return;
-    // const image = await camera.current?.takePictureAsync();
-    // await MediaLibrary.saveToLibraryAsync(image.uri);
-    // saveDataImage(image);
+    if (!camera) return;
+    const image = await camera.current?.takePictureAsync();
+    console.log(image);
+
+    if (image?.uri) {
+      await MediaLibrary.saveToLibraryAsync(image.uri);
+      saveDataImage(image);
+    }
   };
 
   return (
-    <View style={styles.cameracContainer}>
+    <View style={styles.cameraWripper}>
       <CameraView
-        facing={facing}
-        // style={[styles.camera, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
         style={styles.camera}
+        facing={facing}
         ref={camera}
+        active={active ? active : true}
       >
         <TouchableOpacity
-          // style={[styles.cameraButton, outerStyle ? { backgroundColor: "#FFFFFF4D" } : null]}
           style={styles.cameraButton}
           onPress={takePhoto}
         >
@@ -73,30 +76,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    position: "absolute",
+    top: "40%",
   },
   message: {
     textAlign: "center",
     paddingBottom: 10,
   },
-  cameracContainer: {
-    width: 60,
-    height: 60,
-    // position: "absolute",
-    // top: "40%",
+  cameraWripper: {
+    position: "absolute",
+    top: "40%",
 
     alignContent: "center",
     justifyContent: "center",
+    backgroundColor: "transperent",
   },
   camera: {
-    height: "auto",
-    backgroundColor: colors.bgColor,
     borderRadius: 50,
+    backgroundColor: colors.bgColor,
   },
   cameraButton: {
     width: 60,
     height: 60,
-    backgroundColor: colors.bgColor,
     borderRadius: 50,
+    // backgroundColor: colors.bgColor,
   },
   cameraIcon: {
     position: "absolute",

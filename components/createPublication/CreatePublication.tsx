@@ -18,10 +18,14 @@ import LocationIcon from "../../iconsComponents/postItemIcons/LocationIcon";
 import RemuveIcon from "../../iconsComponents/createPublicationIcons/RemuveIcon";
 
 const CreatePublication = () => {
-  const [isPhotoUploaded, setIsPhotoUploaded] = useState(true);
+  const [isPhotoUploaded, setIsPhotoUploaded] = useState(null);
   const [photoTitle, setPhotoTitle] = useState("");
   const [photoLocation, setPhotoLocation] = useState("");
   const [isButtonDisable, setIsButtonDisable] = useState(true);
+
+  useEffect(() => {
+    console.log(isPhotoUploaded);
+  }, [isPhotoUploaded]);
 
   useEffect(() => {
     if (photoTitle && isPhotoUploaded) {
@@ -47,7 +51,7 @@ const CreatePublication = () => {
   const onSubmit = () => {
     console.log(onSubmit);
     alert("Publication published");
-    setIsPhotoUploaded(false);
+    setIsPhotoUploaded(null);
     setPhotoTitle("");
     setPhotoLocation("");
   };
@@ -58,15 +62,11 @@ const CreatePublication = () => {
           // source={require("../../assets/images/publicationImage.png")}
           style={[styles.image]}
         />
-        {/* <Camera
-          outerStyle={isPhotoUploaded && true}
+        <Camera
           saveDataImage={saveDataImage}
-        /> */}
+          active={isPhotoUploaded ? false : true}
+        />
       </View>
-      <Camera
-        outerStyle={isPhotoUploaded && true}
-        saveDataImage={saveDataImage}
-      />
       <Text style={styles.discription}>
         {isPhotoUploaded ? "Завантажте фото" : "Редагувати фото"}
       </Text>
@@ -105,19 +105,20 @@ const CreatePublication = () => {
 };
 const styles = StyleSheet.create({
   container: {
-    // width: "100%",
-    // height: "100%",
+    width: "100%",
+    height: "100%",
 
     flexDirection: "column",
     alignContent: "center",
     justifyContent: "flex-start",
   },
   cameraContainer: {
+    width: "100%",
+    height: 240,
+
     alignContent: "center",
     justifyContent: "center",
     flexDirection: "row",
-
-    height: 240,
 
     borderRadius: 8,
     backgroundColor: colors.borderColor,

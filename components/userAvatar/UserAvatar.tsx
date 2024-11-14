@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View, ViewProps } from "react-native";
 
-import defaultAvatarImage from "../../assets/images/default-avatar-image.jpg";
-import avatarImage from "../../assets/images/avatar.png";
-
 import AddAvatarIconSvg from "../../iconsComponents/avatarIcon/AddAvatarIconSvg";
 import EditAvatarIcon from "../../iconsComponents/avatarIcon/EditAvatarIcon";
 
@@ -23,7 +20,11 @@ const UserAvatar: React.FC<Props> = ({ outerStyles, button = false }) => {
     <View style={[styles.imageContainer, outerStyles]}>
       <Image
         // source={require("../../assets/images/avatar.png")}
-        source={imageData ? avatarImage : defaultAvatarImage}
+        source={
+          imageData
+            ? require("../../assets/images/avatar.png")
+            : require("../../assets/images/default-avatar-image.jpg")
+        }
         style={styles.image}
       />
       {button && (
